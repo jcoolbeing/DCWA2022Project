@@ -1,9 +1,29 @@
 const express = require('express')
 const app = express()
 const port = 3000
+
 // ejs view engine
 let ejs = require('ejs');
 app.set('view engine', 'ejs');
+// body parser
+var bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({extended:false}))
+// mysql and setting up connection pool
+const mysql = require('mysql');
+  mysql.createPool({
+      connectionLimit : 3,
+                 host : 'localhost',
+                 user : 'root',
+             password : 'root',
+             database : 'proj22'
+        })
+        .then(p=>{
+          pool = p
+          console.log("Connected to MYSQL database")
+      })
+    .catch(e => {
+     console.log("pool error:" + e)
+  })
 
 // routes
 app.get('/', (req, res) => {
