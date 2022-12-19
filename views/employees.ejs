@@ -1,0 +1,23 @@
+<html>
+    <body>
+    <h1>Employees</h1>
+    <table>
+        <tr>
+            <td>EID</td>
+            <td>Name</td>
+            <td>Role</td>
+            <td>Salary</td>
+            <td>Update</td>
+        </tr>
+        <% employees.forEach((employee)=>{ %>
+            <tr>
+                <td><%= employee.eid %></td>
+                <td><%= employee.name %></td>
+                <td><%= employee.role %></td>
+                <td><%= employee.salary %></td>
+                <td><%= employee.update %></td>
+            </tr>
+            <%}) %>
+    </table>
+    </body>
+</html>

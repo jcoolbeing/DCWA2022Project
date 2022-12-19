@@ -7,11 +7,24 @@ app.set('view engine', 'ejs');
 
 // routes
 app.get('/', (req, res) => {
-  res.send('Employees')
+  // ejs was not working for me will try again later
+  res.render("home")
+  //res.sendFile(__dirname + "/views/home.html")
+  //fixed wont need send file anymore
 })
 
 app.get('/employees', (req, res)=>{
-  res.send('employees')
+  res.render("employees")
+  //res.sendFile(__dirname + "/views/employees.html")
+  //fixed 
+})
+
+app.get('/departments', (req, res)=>{
+  res.render("departments")
+})
+
+app.get('/employeesMongoDB', (req, res) => {
+  res.render("employeesMongoDb")
 })
 
 app.listen(port, () => {
